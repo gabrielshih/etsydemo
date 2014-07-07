@@ -46,3 +46,14 @@ body {
 
 }
 
+/* changes margins and font size for h3 & p in captions */
+.caption {
+	h3 {font-size: 17px;
+		margin: 2px;
+	}
+	p {
+		font-size: 15px;
+		margin: 0px;
+	}
+}
+
