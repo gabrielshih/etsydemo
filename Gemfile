@@ -44,6 +44,12 @@ gem 'bootstrap-sass', '~> 3.2.0'
 # Use Paperclip gem
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
+# Use Dropbox with Paperclip gem to store pics on Dropbox
+gem "paperclip-dropbox", ">= 1.1.7"
+
+# Use Figaro gem in order to keep certain files secret.
+gem "figaro"
+
 
 group :production do
 	gem 'pg'
