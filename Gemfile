@@ -50,6 +50,9 @@ gem "paperclip-dropbox", ">= 1.1.7"
 # Use Figaro gem in order to keep certain files secret.
 gem "figaro"
 
+# Use Devise gem in order to add users
+gem 'devise'
+
 
 group :production do
 	gem 'pg'
