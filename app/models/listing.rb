@@ -6,10 +6,12 @@ class Listing < ActiveRecord::Base
 											:storage => :dropbox,
     									:dropbox_credentials => Rails.root.join("config/dropbox.yml"),
     									:path => ":style/:id_:filename"
-  	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   end
 
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :name, :description, :price, presence: true
   validates :price, numericality: { greater_than: 0 }
   validates_attachment_presence :image
+
+  belongs_to :user
 end
