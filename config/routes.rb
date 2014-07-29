@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
 
+  # Add a seller page where user can see all their listings. Need to add to listings_controller.rb as well
+  get 'seller' => "listings#seller"
+
   root 'listings#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
