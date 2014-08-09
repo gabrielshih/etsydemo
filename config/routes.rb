@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :listings do
-    resources :orders
+    resources :orders, only: [:new, :create]
   end
 
   get 'pages/about'
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   # Add a seller page where user can see all their listings. Need to add to listings_controller.rb as well
   get 'seller' => "listings#seller"
+
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
 
   root 'listings#index'
 
