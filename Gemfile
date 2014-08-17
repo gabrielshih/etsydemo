@@ -1,3 +1,4 @@
+source 'https://code.stripe.com'
 source 'https://rubygems.org'
 # ruby version was ruby 2.1.2p95. Not sure if I should have typed the 'p95'
 ruby "2.1.2"
@@ -52,6 +53,9 @@ gem "figaro"
 
 # Use Devise gem in order to add users
 gem 'devise'
+
+# Stripe credit card gem (source is listed above at top of page)
+gem 'stripe'
 
 
 group :production do
