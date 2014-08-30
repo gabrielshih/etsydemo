@@ -30,6 +30,7 @@ class OrdersController < ApplicationController
     Stripe.api_key = ENV["STRIPE_API_KEY"]
     token = params[:stripeToken]
 
+    # Charge credit card code
     begin
       charge = Stripe::Charge.create(
         :amount => (@listing.price * 100).floor, 
@@ -40,6 +41,13 @@ class OrdersController < ApplicationController
     rescue Stripe::CardError => e
       flash[:danger] = e.message
     end
+
+    # Transfer payment to seller and keep our commission code. @listing.price * 80 (80% for seller, 20% for us)
+    transfer = Stripe::Transfer.create(
+      :amount => (@listing.price * 80).floor,
+      :currency => "usd",
+      :recipient => @seller.recipient
+      )
 
     respond_to do |format|
       if @order.save
